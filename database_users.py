@@ -15,10 +15,10 @@ class Users(Base): #class definition
 
     __tablename__='Users'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    Full_names = Column(String(50))
-    Username = Column(String(15), unique=True)
-    email = Column(String(50), unique=True)
-    Password = Column(String(80))
+    Full_names = Column(String(50), nullable=False)
+    Username = Column(String(15), unique=True, nullable=False)
+    email = Column(String(50), unique=True, nullable=False)
+    Password = Column(String(80), nullable=False)
 
 engine = create_engine('sqlite:///Users.db')
 Base.metadata.create_all(engine)
